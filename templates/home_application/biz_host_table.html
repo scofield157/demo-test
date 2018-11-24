@@ -1,0 +1,15 @@
+% for host in biz_host_list:
+<tr>
+    <td>
+        <input type="checkbox" value="${host.get('hostID')}" ip="${host.get('hostIP')}"
+               os-type="${host.get('hostOSType')}">
+    </td>
+    <td>${host.get('hostIP')}</td>
+    <td>${host.get('hostOSType')}</td>
+</tr>
+% endfor
+% if not biz_host_list:
+<tr>
+    <td colspan="9" style="text-align: center;padding:20px;">没有查到相关主机</td>
+</tr>
+% endif

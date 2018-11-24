@@ -14,6 +14,6 @@ from django.conf.urls import patterns
 urlpatterns = patterns(
     'home_application.views',
     (r'^$', 'home'),
-    (r'^dev-guide/$', 'dev_guide'),
-    (r'^contactus/$', 'contactus'),
+    (r'^get_host_by_biz/$', 'search_host'),
+    (r'^create_task/$', 'create_task'),
 )

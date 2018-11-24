@@ -1,12 +1,25 @@
 # -*- coding: utf-8 -*-
-"""
-Tencent is pleased to support the open source community by making 蓝鲸智云(BlueKing) available.
-Copyright (C) 2017 THL A29 Limited, a Tencent company. All rights reserved.
-Licensed under the MIT License (the "License"); you may not use this file except in compliance with the License.
-You may obtain a copy of the License at http://opensource.org/licenses/MIT
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on
-an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-See the License for the specific language governing permissions and limitations under the License.
-"""
+from django.db import models
 
-# from django.db import models
+
+class Script(models.Model):
+    """业务信息"""
+
+    script_name = models.CharField(u'脚本名', max_length=50)
+    script_text = models.CharField(u'脚本内容', max_length=500)
+    script_input = models.CharField(u'默认参数', max_length=200, default=None, null=True)
+    script_desc = models.CharField(u'脚本说明', max_length=200, default=None, null=True)
+
+
+class OptLog(models.Model):
+    """操作记录信息"""
+    user = models.CharField(u'操作用户', max_length=128, null=True)
+    start_time = models.DateField(default=None, null=True)
+    biz = models.CharField(max_length=50, default=None, null=True)
+    task_id = models.CharField(max_length=50, default=None, null=True)
+    result = models.CharField(max_length=500, default=None, null=True)
+    celery_id = models.CharField(max_length=50, default=None, null=True)
+    script_id = models.IntegerField(max_length=11, default=None, null=True)
+    end_time = models.DateField(default=None, null=True)
+    log = models.CharField(max_length=500, default=None, null=True)
+    status = models.CharField(max_length=500, default=None, null=True)

@@ -48,7 +48,7 @@ def execute_task():
     async_task.apply_async(args=[now.hour, now.minute], eta=now + datetime.timedelta(seconds=60))
 
 
-@periodic_task(run_every=crontab(minute='*/5', hour='*', day_of_week="*"))
+@periodic_task(run_every=crontab(minute='*/1', hour='*', day_of_week="*"))
 def get_time():
     """
     celery 周期任务示例

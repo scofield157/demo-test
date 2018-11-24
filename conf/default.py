@@ -36,7 +36,7 @@ APP_TOKEN = '27b473d8-a390-4e5b-9bc0-ad91a2d76580'
 BK_PAAS_HOST = 'http://paas-poc.o.qcloud.com'
 
 # 请求官方 API 默认版本号，可选值为："v2" 或 ""；其中，"v2"表示规范化API，""表示未规范化API
-DEFAULT_BK_API_VER = 'v2'
+DEFAULT_BK_API_VER = ''
 
 # 是否启用celery任务
 IS_USE_CELERY = True
@@ -96,7 +96,7 @@ ALLOWED_HOSTS = ['*']
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
@@ -104,7 +104,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'account.middlewares.LoginMiddleware',   # 登录鉴权中间件
-    'common.middlewares.CheckXssMiddleware',  # Xss攻击处理中间件
+    #'common.middlewares.CheckXssMiddleware',  # Xss攻击处理中间件
 )
 
 INSTALLED_APPS = (

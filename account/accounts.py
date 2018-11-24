@@ -72,7 +72,7 @@ class Account(AccountSingleton):
                 user.email = data.get('email', '')
                 # 用户权限更新,保持与平台同步
                 role = data.get('role', '')
-                is_admin = True if role == '1' else False
+                is_admin = True #if role == '1' else False
                 user.is_superuser = is_admin
                 user.is_staff = is_admin
                 user.save()
