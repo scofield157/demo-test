@@ -31,7 +31,8 @@
     <script src="https://magicbox.bk.tencent.com/static_api/v3/bk/js/bk.js"></script>
     <!-- 数据埋点统计 -->
     <script src="http://magicbox.bk.tencent.com/static_api/analysis.js"></script>
-
+    <link href="https://magicbox.bk.tencent.com/static_api/v3/assets/toastr-2.1.2/toastr.min.css" rel="stylesheet">
+    <script src="https://magicbox.bk.tencent.com/static_api/v3/assets/toastr-2.1.2/toastr.min.js"></script>
     <!-- 放到蓝鲸开发框架后，请引用csrftoken.js解决jquery下POST请求403问题，如果使用的是mako模板，可以直接去掉下面的注释 -->
     <!--script src="${STATIC_URL}js/csrftoken.js?v=${STATIC_VERSION}" type="text/javascript"></script-->
     <!-- 这个是全局配置，如果需要在js中使用app_id和site_url,则这个javascript片段一定要保留 -->
@@ -153,10 +154,16 @@
                 </table>
             </div>
         </div>
+        <button data-type="success" class="plugin27_demo1 king-btn mb15 mr100 king-success" id="plugin27_demo1">success</button>
         <!-- 设置面板End -->
     </div>
 </div>
 <script>
+    // 提示类型
+    $('.plugin27_demo1').on('click', function(){
+        var type = $(this).attr('data-type');
+        toastr[type]('<br>当前提示类型：'+type,type);
+    });
     function search_host(){
         $.get('get_host_by_biz/', {
                 'bk_biz_id': $("#biz_select").val(),
@@ -196,7 +203,7 @@
             },
             success:function(result){
                 if(result.result){
-                    alert("创建成功")
+                    $("#plugin27_demo1").trigger("click")
                 }
             }
         })

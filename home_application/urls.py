@@ -16,4 +16,5 @@ urlpatterns = patterns(
     (r'^$', 'home'),
     (r'^get_host_by_biz/$', 'search_host'),
     (r'^create_task/$', 'create_task'),
+    (r'^api/test/$', 'test_interface'),
 )

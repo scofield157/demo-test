@@ -126,3 +126,11 @@ def create_task(request):
                 task_id=job.get("data").get("taskInstanceId")
             )
     return render_json({"result": True, "data": {}})
+
+
+def test_interface(request):
+    return render_json({
+        "result": True,
+        "message": "hello",
+        "data": "world"
+    })
